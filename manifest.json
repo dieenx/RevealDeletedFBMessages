@@ -1,0 +1,37 @@
+{
+   "action": {
+      "default_icon": {
+         "16": "icons/icon16.png",
+         "24": "icons/icon24.png",
+         "32": "icons/icon32.png",
+         "48": "icons/icon48.png"
+      },
+      "default_popup": "popup/popup.html",
+      "default_title": "Reveal Deleted FB Message"
+   },
+   "content_scripts": [ {
+      "css": [ "./content.css" ],
+      "js": [ "./content.js" ],
+      "matches": [ "*://*.facebook.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "js": [ "./libs/swal2.js" ],
+      "matches": [ "*://*.facebook.com/*" ],
+      "run_at": "document_idle"
+   } ],
+   "description": "Xem lại tin nhắn đã gỡ trên fb",
+   "externally_connectable": {
+      "matches": [ "*://*.facebook.com/*" ]
+   },
+   "host_permissions": [ "*://*.facebook.com/*" ],
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiPPGwcyPU9EkoFxJw4+jS48YetIxG+5P1a9hTQnfsGDHn8QX+fdZmLo1aaIqMmvdMNZP4x3VLRQ3m3br4InbugMdf78M1bURlqPpqGjGtrB5LhQ9Yxa7YuELbxwmCOwluynJ3uyez6wct4kAF7eKtd10WyCqxKcHKCDuLTvTBlhwmqPwRcPqtH7VbFfXLrKjZB877juJaClJpAvIlL+qc5HvDcqpVWOsqN9pyArYvhNjsCNymzcJwwMROMLS2uW4wKMmyAkUxq9NaLjbDYNkHReLEj9e0slFxj+i9vYlLg00tQj0XMh604xPDbXWvRsXMuV3H0W+Xdv1s1Vf3iHaKQIDAQAB",
+   "manifest_version": 3,
+   "name": "Reveal Deleted FB Messages",
+   "permissions": [  ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "0.0.2",
+   "web_accessible_resources": [ {
+      "matches": [ "\u003Call_urls>" ],
+      "resources": [ "inject_websocket.js", "libs/swal2.js", "icons/icon16.png", "icons/icon32.png" ]
+   } ]
+}
